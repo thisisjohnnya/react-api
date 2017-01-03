@@ -1,10 +1,15 @@
 import React from 'react';
-import Greetings from './Greetings'
+import NavigationBar from './NavigationBar';
+import Greetings from './Greetings';
+import Testing from './Testing';
 
 class App extends React.Component {
     render () {
         return (
-            <Greetings />
+            <div className="container">
+                <NavigationBar />
+                {this.props.children}
+            </div>
         );
     }
 }
