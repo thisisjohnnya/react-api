@@ -40,7 +40,9 @@ class SignupForm extends React.Component {
         if (this.isValid()){
             this.setState({ errors: {}, isLoading: true });
             this.props.userSignupRequest(this.state).then(
-                () => {},
+                () => {
+                    this.context.router.push('/');
+                },
                 ({response})=>{this.setState({errors:response.data, isLoading: false})}
             );﻿
         }
@@ -72,6 +74,7 @@ class SignupForm extends React.Component {
                     label="Password"
                     onChange={this.onChange}
                     value={this.state.password}
+                    type="password"
                     field="password"
                 />
                 <InputFields
@@ -79,6 +82,7 @@ class SignupForm extends React.Component {
                     label="Password Confirmation"
                     onChange={this.onChange}
                     value={this.state.passwordConfirm}
+                    type="password"
                     field="passwordConfirm"
                 />
                 <div className={classnames("form-group",{ 'has-error' : errors.timezone })}>
@@ -104,6 +108,10 @@ class SignupForm extends React.Component {
 
 SignupForm.propTypes = {
     userSignupRequest: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
 
 export default SignupForm
