@@ -1,5 +1,5 @@
 import path from 'path'
-import webpack from 'webpack'
+import webpack from 'webpack';
 
 export default {
     devtools: 'eval-source-map',
@@ -20,12 +20,15 @@ export default {
         loaders: [
             {
                 test: /\.js$/,
-                include: path.join(__dirname, 'client'),
+                include: [
+                    path.join(__dirname, 'client'),
+                    path.join(__dirname, 'server/shared')
+                ],
                 loaders: [ 'react-hot', 'babel' ]
             }
         ]
     },
     resolve: {
-        extensions: [ '', '.js' ]
+        extentions: [ '', '.js' ]
     }
 }
