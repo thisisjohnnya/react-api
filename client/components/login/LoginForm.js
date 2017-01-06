@@ -2,7 +2,7 @@ import React from 'react'
 import InputFields from '../common/InputFields'
 import validateInput from '../../../server/shared/validations/login'
 import { connect } from 'react-redux'
-import { login } from '../../actions/login'
+import { login } from '../../actions/authActions'
 
 
 class LoginForm extends React.Component {
